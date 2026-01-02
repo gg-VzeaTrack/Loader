@@ -1,4 +1,4 @@
-local self = loadstring(game:HttpGet("https://raw.githubusercontent.com/gg-VzeaTrack/Modules/refs/heads/main/GameData.c"))()
+local self = loadstring(game:HttpGet("https://raw.githubusercontent.com/gg-VzeaTrack/Loader/refs/heads/main/Modules/GameData.c"))()
 World1,World2,World3 = self.world()
 
 local Queue = {}
