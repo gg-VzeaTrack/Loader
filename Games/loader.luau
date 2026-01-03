@@ -12,6 +12,8 @@ EMAX = error
 CCMAX.D = (function(...) return(...) end)
 local D = {}
 D[1] = "EVIL"
+D[2] = "BloxFruit_Beta.luau"
+D[3] = "BladeBall_Beta.luau"
 
 return {
   AMAX,
