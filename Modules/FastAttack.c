@@ -85,5 +85,5 @@ function FastAttack:Attack()
 end
 
 task.spawn(function()
-    while task.wait() do FastAttack:Attack() end
+    while task.wait(0.2) do FastAttack:Attack() end
 end)
