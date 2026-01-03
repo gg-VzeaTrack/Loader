@@ -7,5 +7,5 @@
 ## UI - LIBRARY ##
 
 ```lua
-print(1)
+loadstring(game:HttpGet("[https://raw.githubusercontent.com/gg-VzeaTrack/Loader/refs/heads/main/Games/BloxFruits.luau](https://raw.githubusercontent.com/gg-VzeaTrack/Loader/refs/heads/main/Library/Library.lua)"))()
 ```
