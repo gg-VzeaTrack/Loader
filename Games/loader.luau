@@ -9,9 +9,15 @@ ZMAX = print
 TMAX = warn
 EMAX = error
 
+CCMAX.D = (function(...) return(...) end)
+local D = {}
+D[1] = "EVIL"
+
 return {
-  "L",
-  "A",
-  "S",
-  "T",
+  AMAX,
+  BMAX,
+  ZMAX,
+  TMAX,
+  EMAX,
+  CCMAX,
 }
