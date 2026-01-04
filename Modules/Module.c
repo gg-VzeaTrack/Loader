@@ -38,7 +38,7 @@ function Module.GetNearest()
     nearest = nil
     dist = math.huge
     for _,v in ipairs(workspace.Enemies:GetChildren()) do
-        if Attack.Alive(v) and v:FindFirstChild("HumanoidRootPart") then
+        if Module.IsAlive(v) and v:FindFirstChild("HumanoidRootPart") then
             d = (v.HumanoidRootPart.Position - hrp.Position).Magnitude
             if d < dist then
                 dist = d
