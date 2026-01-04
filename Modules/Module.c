@@ -40,7 +40,7 @@ Module.BringEnemy = function()
         pp.CanCollide = true
         hum.WalkSpeed = 0
         hum.JumpPower = 0
-        if hum:FindFirstChild("Animator") then hum.Animator:Destroy() end
+        -- if hum:FindFirstChild("Animator") then hum.Animator:Destroy() end
     end
 end
 function Module.GetNearest()
