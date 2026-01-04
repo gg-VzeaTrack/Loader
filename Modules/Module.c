@@ -27,6 +27,9 @@ Module.BringEnemy = function()
         v.PrimaryPart.CanCollide = true;
         v:FindFirstChild("Humanoid").WalkSpeed = 0;
         v:FindFirstChild("Humanoid").JumpPower = 0;
+        if v.Humanoid:FindFirstChild("Animator") then
+                    v.Humanoid.Animator:Destroy()
+                end;
       end
     end
   end
