@@ -44,30 +44,6 @@ Module.BringEnemy = function(Target)
         end
     end
 end
-local plr = game.Players.LocalPlayer
-local Root = plr.Character.HumanoidRootPart
-local block = Instance.new("Part", workspace) block.Size = Vector3.new(1, 1, 1) block.Name = "Rip_Indra" block.Anchored = true block.CanCollide = false block.CanTouch = false block.Transparency = 1
-local blockfind = workspace:FindFirstChild(block.Name) if blockfind and blockfind ~= block then blockfind:Destroy() end
-task.spawn(function()while task.wait()do if block and block.Parent==workspace then if shouldTween then getgenv().OnFarm=true else getgenv().OnFarm=false end else getgenv().OnFarm=false end end end)
-task.spawn(function()local a=game.Players.LocalPlayer;repeat task.wait()until a.Character and a.Character.PrimaryPart;block.CFrame=a.Character.PrimaryPart.CFrame;while task.wait()do pcall(function()if getgenv().OnFarm then if block and block.Parent==workspace then local b=a.Character and a.Character.PrimaryPart;if b and(b.Position-block.Position).Magnitude<=200 then b.CFrame=block.CFrame else block.CFrame=b.CFrame end end;local c=a.Character;if c then for d,e in pairs(c:GetChildren())do if e:IsA("BasePart")then e.CanCollide=false end end end else local c=a.Character;if c then for d,e in pairs(c:GetChildren())do if e:IsA("BasePart")then e.CanCollide=true end end end end end)end end)
-Nearest = function(a)local b=a.Position;local c=math.huge;local d=math.huge;local e={}if World3 then e={["Mansion"]=Vector3.new(-12471,374,-7551),["Hydra"]=Vector3.new(5659,1013,-341),["Caslte On The Sea"]=Vector3.new(-5092,315,-3130),["Floating Turtle"]=Vector3.new(-12001,332,-8861),["Temple Of Time"]=Vector3.new(28286,14897,103)}elseif World2 then e={["Flamingo Mansion"]=Vector3.new(-317,331,597),["Flamingo Room"]=Vector3.new(2283,15,867),["Cursed Ship"]=Vector3.new(923,125,32853),["Zombie Island"]=Vector3.new(-6509,83,-133)}elseif World1 then e={["Sky Island 1"]=Vector3.new(-4652,873,-1754),["Sky Island 2"]=Vector3.new(-7895,5547,-380),["Under Water Island"]=Vector3.new(61164,5,1820),["Under Water Island Entrace"]=Vector3.new(3865,5,-1926)}end;local f={}for g,h in pairs(e)do f[g]=(h-b).Magnitude end;for g,h in pairs(f)do if h<c then c=h;d=h end end;local i;for g,h in pairs(f)do if h<=c then i=e[g]end end;local j=(b-Root.Position).Magnitude;if d<=j then return i end end
-Module.T = function(target)
-  local character = plr.Character
-  if not character or not character:FindFirstChild("HumanoidRootPart") then return end
-  local rootPart = character.HumanoidRootPart
-  local distance = (target.Position - rootPart.Position).Magnitude
-  if distance <= 300 then Root.CFrame = target end
-  local tweenInfo = TweenInfo.new(distance / TwSpeed, Enum.EasingStyle.Linear)
-  local tween = game:GetService("TweenService"):Create(block, tweenInfo, {CFrame = target})
-  if Nearest(target) then pcall(function() tween:Cancel() end) _R("requestEntrance",Nearest(target)) block.CFrame = Root.CFrame end
-  if not Root:FindFirstChild("BodyClip") then local Noclip = Instance.new("BodyVelocity") Noclip.Name = "BodyClip" Noclip.Parent = Root Noclip.MaxForce = Vector3.new(100000,100000,100000) Noclip.Velocity = Vector3.new(0,0,0) end        
-  if not plr.Character:FindFirstChild('highlight') then local Test = Instance.new('Highlight') Test.Name = "highlight" Test.Enabled = true Test.FillColor = Color3.fromRGB(0,204,255) Test.OutlineColor = Color3.fromRGB(255,255,255) Test.FillTransparency = 0.5 Test.OutlineTransparency = 0.2 Test.Parent = plr.Character end
-  for _,v in pairs(plr.Character:GetDescendants()) do if v:IsA("BasePart") then v.CanCollide = false end end
-  if _G.Y_Position then Root.CFrame = CFrame.new(Root.CFrame.X, target.Y, Root.CFrame.Z) end
-  if plr.Character.Humanoid.Sit == true then block.CFrame = CFrame.new(block.Position.X, target.Y, block.Position.Z) end  
-  tween:Play()
-  task.spawn(function() while tween.PlaybackState == Enum.PlaybackState.Playing do if not shouldTween then tween:Cancel() break end task.wait() end end)
-end
 function Module.GetNearest()
     local plr = game.Players.LocalPlayer
     local char = plr.Character
