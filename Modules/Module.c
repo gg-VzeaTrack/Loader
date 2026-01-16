@@ -44,6 +44,8 @@ Module.BringEnemy = function(Target)
         end
     end
 end
+local plr = game.Players.LocalPlayer
+local Root = plr.Character.HumanoidRootPart
 local block = Instance.new("Part", workspace) block.Size = Vector3.new(1, 1, 1) block.Name = "Rip_Indra" block.Anchored = true block.CanCollide = false block.CanTouch = false block.Transparency = 1
 local blockfind = workspace:FindFirstChild(block.Name) if blockfind and blockfind ~= block then blockfind:Destroy() end
 task.spawn(function()while task.wait()do if block and block.Parent==workspace then if shouldTween then getgenv().OnFarm=true else getgenv().OnFarm=false end else getgenv().OnFarm=false end end end)
